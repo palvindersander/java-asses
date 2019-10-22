@@ -62,6 +62,9 @@ public class TweetCleaner {
                 clean += s + " ";
             }
         }
+        if (clean == null || clean.isEmpty()) {
+            return null;
+        }
         return clean;
     }
 
@@ -116,11 +119,13 @@ public class TweetCleaner {
     }
 
     private String removePunct(String s) {
-        s = s.replace(" ", "");
         String  x = "";
         for (int i = 0; i < s.length(); i++) {
             char c = s.charAt(i);
             // ' ! ? letter
+            if (c==32) {
+                continue;
+            }
             if (c != 39 && c != 33 && c != 63 && !checkLetter(c) && c!= 8217) {
                 continue;
             }
