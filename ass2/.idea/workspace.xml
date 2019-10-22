@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="5689238a-a4a5-45c5-a7d8-83e1d2468ca6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cleaned.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cleaned.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ass2/TweetCleaner.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ass2/TweetCleaner.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/TweetCleaner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TweetCleaner.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -56,13 +54,13 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="2470" />
+          <entry key="java" value="2495" />
           <entry key="txt" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="2470" />
+          <entry key="JAVA" value="2495" />
           <entry key="PLAIN_TEXT" value="11" />
         </counts>
       </usages-collector>
@@ -83,8 +81,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/TweetCleaner.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="223">
-              <caret line="61" column="33" lean-forward="true" selection-start-line="61" selection-start-column="33" selection-end-line="61" selection-end-column="33" />
+            <state relative-caret-position="690">
+              <caret line="51" column="104" selection-start-line="51" selection-start-column="104" selection-end-line="51" selection-end-column="104" />
               <folding>
                 <element signature="e#329#337#0" expanded="true" />
                 <element signature="e#401#409#0" expanded="true" />
@@ -154,14 +152,14 @@
       <list>
         <option value="$PROJECT_DIR$/src/TweetGenerator.java" />
         <option value="$PROJECT_DIR$/src/Word.java" />
-        <option value="$PROJECT_DIR$/src/TweetCleaner.java" />
         <option value="$PROJECT_DIR$/donald.txt" />
+        <option value="$PROJECT_DIR$/src/TweetCleaner.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="790" />
-    <option name="width" value="1137" />
+    <option name="x" value="828" />
+    <option name="width" value="1099" />
     <option name="height" value="1057" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -191,7 +189,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1571779518747" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1571780395114" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunDashboard">
@@ -261,7 +259,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32570806" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32893288" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39978212" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -311,8 +309,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/TweetCleaner.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="61" column="33" lean-forward="true" selection-start-line="61" selection-start-column="33" selection-end-line="61" selection-end-column="33" />
+        <state relative-caret-position="690">
+          <caret line="51" column="104" selection-start-line="51" selection-start-column="104" selection-end-line="51" selection-end-column="104" />
           <folding>
             <element signature="e#329#337#0" expanded="true" />
             <element signature="e#401#409#0" expanded="true" />

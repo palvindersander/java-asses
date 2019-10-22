@@ -49,7 +49,7 @@ public class TweetCleaner {
         String[] inputSplit = input.split(" ");
         for (int i = 0; i < inputSplit.length; i++) {
             String s = inputSplit[i];
-            if (checkTag(s) || checkHash(s) || checkURL(s) || checkRT(s) || checkrt(s) || checkNum(s)) {
+            if (checkTag(s) || checkHash(s) || checkURL(s) || checkRT(s) || checkrt(s) || checkNum(s) || s==null || s.isEmpty()){
                 continue;
             }
             s = removeElipsis4(s);
