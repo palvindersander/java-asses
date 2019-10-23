@@ -1,11 +1,13 @@
 //package com.bham.pij.assignments.twit;
 
+import java.awt.*;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.security.SecureRandom;
 import java.util.ArrayList;
 
 public class TweetCleaner {
@@ -14,6 +16,7 @@ public class TweetCleaner {
     private static ArrayList<String> cleaned = new ArrayList<String>();
 
     public static void main(String[] args) throws IOException {
+
         new TweetCleaner();
 
         System.out.println("Done.");
@@ -29,6 +32,7 @@ public class TweetCleaner {
     }
 
     private void clean() {
+
         for (String line : raw) {
 
             String cln = clean(line);
@@ -45,103 +49,128 @@ public class TweetCleaner {
     }
 
     public String clean(String input) {
-        String clean = "";
-        String[] inputSplit = input.split(" ");
-        for (int i = 0; i < inputSplit.length; i++) {
-            String s = inputSplit[i];
-            if (checkTag(s) || checkHash(s) || checkURL(s) || checkRT(s) || checkrt(s) || checkNum(s) || s==null || s.isEmpty()){
-                continue;
-            }
-            s = removeElipsis4(s);
-            s = removeElipsis3(s);
-            s = removeHyphen(s);
-            s = removePunct(s);
-            if (i == inputSplit.length - 1) {
-                clean += s;
-            } else {
-                clean += s + " ";
-            }
-        }
-        if (clean == null || clean.isEmpty()) {
+        //prelim checks
+        if (input == null || input.isEmpty()) {
             return null;
         }
-        return clean;
-    }
+        String[] words = input.split(" ");
+        ArrayList<String> cleanedWords = new ArrayList<>();
 
-    private Boolean checkTag(String s) {
-        return s.contains("@");
-    }
-
-    private Boolean checkHash(String s) {
-        return s.contains("#");
-    }
-
-    private Boolean checkURL(String s) {
-        return s.contains("https://");
-    }
-
-    private Boolean checkRT(String s) {
-        return s.contains("RT");
-    }
-
-    private Boolean checkrt(String s) {
-        return s.contains("rt");
-    }
-
-    private Boolean checkNum(String s) {
-        for (int i = 0; i < s.length(); i++) {
-            if (checkNum(s.charAt(i))) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    private String removeElipsis3(String s) {
-        if (s.contains("...")) {
-            return s.replace("...", "");
-        }
-        return s;
-    }
-
-    private String removeElipsis4(String s) {
-        if (s.contains("....")) {
-            return s.replace("....", "");
-        }
-        return s;
-    }
-
-    private String removeHyphen(String s) {
-        if (s.contains("-")) {
-            return s.replace("-", "");
-        }
-        return s;
-    }
-
-    private String removePunct(String s) {
-        String  x = "";
-        for (int i = 0; i < s.length(); i++) {
-            char c = s.charAt(i);
-            // ' ! ? letter
-            if (c==32) {
+        //checking words
+        for (String word : words) {
+            if (word == null || word.isEmpty()) {
                 continue;
             }
-            if (c != 39 && c != 33 && c != 63 && !checkLetter(c) && c!= 8217) {
+            String cleanedWord = word;
+            //check if valid
+            if (cleanedWord.contains("#") || cleanedWord.contains("@") || cleanedWord.contains("http") || cleanedWord.equals("RT") || cleanedWord.equals("rt")) {
                 continue;
             }
-            if (c == 33 || c == 63) {
-                if (!(i == s.length() - 1)) {
-                    continue;
+            //check if contains digits
+            boolean digits = false;
+            for (int i = 0; i < cleanedWord.length(); i++) {
+                char c = cleanedWord.charAt(i);
+                if (checkNum(c)) {
+                    digits = true;
+                    break;
                 }
             }
-            if (c == 39 || c == 8217) {
-                if (i!=s.length()-2 || i!=s.length()-1) {
+            if (digits) {
+                continue;
+            }
+            //remove ellipsis
+            cleanedWord = cleanedWord.replace("....", "");
+            cleanedWord = cleanedWord.replace("...", "");
+            //remove hyphen
+            cleanedWord = cleanedWord.replace("-", "");
+            //reform punctuation
+            String reformedWord = "";
+            for (int i = 0; i < cleanedWord.length(); i++) {
+                char c = cleanedWord.charAt(i);
+                //remove any unacceptable char
+                if (c != 8217 && c != 39 && c != 33 && c != 63 && !checkLetter(c)) {
                     continue;
                 }
+                //check exclamation
+                if (c == 33) {
+                    if (i == 0) {
+                        continue;
+                    }
+                    if (!(i == cleanedWord.length() - 1)) {
+                        boolean listofExclamations = true;
+                        for (int x = i + 1; x < cleanedWord.length(); x++) {
+                            char cExclamation = cleanedWord.charAt(x);
+                            if (cExclamation != 33) {
+                                listofExclamations = false;
+                                break;
+                            }
+                        }
+                        if (!listofExclamations) {
+                            continue;
+                        }
+                    }
+                }
+                //check question
+                if (c == 63) {
+                    if (i == 0) {
+                        continue;
+                    }
+                    if (!(i == cleanedWord.length() - 1)) {
+                        boolean listofExclamations = true;
+                        for (int x = i + 1; x < cleanedWord.length(); x++) {
+                            char cExclamation = cleanedWord.charAt(x);
+                            if (cExclamation != 63) {
+                                listofExclamations = false;
+                                break;
+                            }
+                        }
+                        if (!listofExclamations) {
+                            continue;
+                        }
+                    }
+                }
+                //check apostrophe
+                if (c == 39 || c == 8217) {
+                    if (cleanedWord.length() < 2) {
+                        continue;
+                    }
+                    if (i != cleanedWord.length()-2 && i != cleanedWord.length()-1) {
+                        continue;
+                    }
+                    if (i == cleanedWord.length()-2) {
+                        char left = cleanedWord.charAt(i-1);
+                        char right = cleanedWord.charAt(i+1);
+                        if (!checkLetter(left) || !checkLetter(right)){
+                            continue;
+                        }
+                    }
+                    if (i == cleanedWord.length()-1) {
+                        char left = cleanedWord.charAt(i-1);
+                        if (!checkLetter(left)){
+                            continue;
+                        }
+                    }
+                }
+                reformedWord = reformedWord + c;
             }
-            x += c;
+            cleanedWord = reformedWord;
+            if (cleanedWord == null || cleanedWord.isEmpty()) {
+                continue;
+            }
+            cleanedWords.add(cleanedWord);
         }
-        return x;
+
+        //create cleaned string
+        if (cleanedWords.size() == 0) {
+            return null;
+        }
+        String cleanedInput = "";
+        for (int i = 0; i < cleanedWords.size() - 1; i++) {
+            String cleanWord = cleanedWords.get(i);
+            cleanedInput = cleanedInput + cleanWord + " ";
+        }
+        cleanedInput = cleanedInput + cleanedWords.get(cleanedWords.size() - 1);
+        return cleanedInput;
     }
 
     private boolean checkLetter(int c) {
@@ -178,6 +207,7 @@ public class TweetCleaner {
         while ((line = br.readLine()) != null) {
 
             raw.add(line);
+
         }
 
         br.close();
