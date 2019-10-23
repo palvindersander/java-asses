@@ -206,7 +206,7 @@ public class TweetCleaner {
 
     private void loadRaw() throws IOException {
 
-        BufferedReader br = new BufferedReader(new FileReader(new File("x.txt")));
+        BufferedReader br = new BufferedReader(new FileReader(new File("donald.txt")));
 
         String line = "";
 
