@@ -84,6 +84,7 @@ public class TweetCleaner {
             //remove hyphen
             cleanedWord = cleanedWord.replace("-", "");
             //reform punctuation
+            String removePuncWord = "";
             String reformedWord = "";
             for (int i = 0; i < cleanedWord.length(); i++) {
                 char c = cleanedWord.charAt(i);
@@ -91,6 +92,11 @@ public class TweetCleaner {
                 if (c != 8217 && c != 39 && c != 33 && c != 63 && !checkLetter(c)) {
                     continue;
                 }
+                removePuncWord = removePuncWord + c;
+            }
+            cleanedWord = removePuncWord;
+            for (int i = 0; i < cleanedWord.length(); i++) {
+                char c = cleanedWord.charAt(i);
                 //check exclamation
                 if (c == 33) {
                     if (i == 0) {
@@ -200,7 +206,7 @@ public class TweetCleaner {
 
     private void loadRaw() throws IOException {
 
-        BufferedReader br = new BufferedReader(new FileReader(new File("donald.txt")));
+        BufferedReader br = new BufferedReader(new FileReader(new File("x.txt")));
 
         String line = "";
 
