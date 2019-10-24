@@ -17,7 +17,6 @@ public class TweetGenerator {
     public static void main(String[] args) throws IOException {
 
         new TweetGenerator();
-
         System.out.println("Done.");
     }
 
@@ -54,12 +53,51 @@ public class TweetGenerator {
     }
 
     public String createTweet(int numWords) {
-
-        return null;
+        String[] tweetWords = new String[numWords];
+        Word currentWord = null;
+        for (int i = 0; i < numWords; i++) {
+            if (currentWord == null) {
+                if (words.size() == 0) {
+                    return null;
+                }
+                if (words.size() == 1) {
+                    currentWord =  words.get(0);
+                }
+                else {
+                    int r = random.nextInt(words.size() - 1);
+                    currentWord = words.get(r);
+                }
+            }
+            tweetWords[i] = currentWord.getWord();
+            currentWord = getWord(currentWord.getRandomFollower(),words);
+        }
+        String tweet = "";
+        for (int i = 0; i < tweetWords.length; i++) {
+            String word = tweetWords[i];
+            if (tweetWords.length == 0) {
+                return null;
+            }
+            if (i == tweetWords.length-1) {
+                tweet = tweet + word;
+            }
+            else {
+                tweet = tweet + word + " ";
+            }
+        }
+        return tweet;
     }
 
     private Word getWord(String word) {
 
+        for (Word w : words) {
+            if (w.getWord().equalsIgnoreCase(word)) {
+                return w;
+            }
+        }
+        return null;
+    }
+
+    private Word getWord(String word, ArrayList<Word> words) {
         for (Word w : words) {
             if (w.getWord().equalsIgnoreCase(word)) {
                 return w;
@@ -76,7 +114,7 @@ public class TweetGenerator {
                 add follower
         increment frequency
          */
-
+        ArrayList<Word> words = new ArrayList<>();
         if (cleaned.isEmpty() | cleaned == null) {
             return null;
         }
@@ -88,15 +126,17 @@ public class TweetGenerator {
             } else {
                 followerWord = cleaned.get(i + 1);
             }
-            if (getWord(currentWord) == null) {
+            if (getWord(currentWord, words) == null) {
                 Word word = new Word(currentWord);
+                word.incrementFrequency();
                 word.incrementFrequency();
                 if (followerWord != null) {
                     word.addFollower(followerWord);
                 }
+                words.add(word);
             }
-            if (getWord(currentWord) != null) {
-                Word word = getWord(currentWord);
+            if (getWord(currentWord, words) != null) {
+                Word word = getWord(currentWord, words);
                 int index = words.indexOf(word);
                 word.incrementFrequency();
                 if (followerWord != null) {
@@ -107,6 +147,6 @@ public class TweetGenerator {
                 words.set(index, word);
             }
         }
-        return null;
+        return words;
     }
 }
