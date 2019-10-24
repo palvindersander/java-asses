@@ -140,19 +140,19 @@ public class TweetCleaner {
                     if (cleanedWord.length() < 2) {
                         continue;
                     }
-                    if (i != cleanedWord.length()-2 && i != cleanedWord.length()-1) {
+                    if (i != cleanedWord.length() - 2 && i != cleanedWord.length() - 1) {
                         continue;
                     }
-                    if (i == cleanedWord.length()-2) {
-                        char left = cleanedWord.charAt(i-1);
-                        char right = cleanedWord.charAt(i+1);
-                        if (!checkLetter(left) || !checkLetter(right)){
+                    if (i == cleanedWord.length() - 2) {
+                        char left = cleanedWord.charAt(i - 1);
+                        char right = cleanedWord.charAt(i + 1);
+                        if (!checkLetter(left) || !checkLetter(right)) {
                             continue;
                         }
                     }
-                    if (i == cleanedWord.length()-1) {
-                        char left = cleanedWord.charAt(i-1);
-                        if (!checkLetter(left)){
+                    if (i == cleanedWord.length() - 1) {
+                        char left = cleanedWord.charAt(i - 1);
+                        if (!checkLetter(left)) {
                             continue;
                         }
                     }

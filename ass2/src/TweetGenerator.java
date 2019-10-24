@@ -61,15 +61,14 @@ public class TweetGenerator {
                     return null;
                 }
                 if (words.size() == 1) {
-                    currentWord =  words.get(0);
-                }
-                else {
+                    currentWord = words.get(0);
+                } else {
                     int r = random.nextInt(words.size() - 1);
                     currentWord = words.get(r);
                 }
             }
             tweetWords[i] = currentWord.getWord();
-            currentWord = getWord(currentWord.getRandomFollower(),words);
+            currentWord = getWord(currentWord.getRandomFollower(), words);
         }
         String tweet = "";
         for (int i = 0; i < tweetWords.length; i++) {
@@ -77,10 +76,9 @@ public class TweetGenerator {
             if (tweetWords.length == 0) {
                 return null;
             }
-            if (i == tweetWords.length-1) {
+            if (i == tweetWords.length - 1) {
                 tweet = tweet + word;
-            }
-            else {
+            } else {
                 tweet = tweet + word + " ";
             }
         }
