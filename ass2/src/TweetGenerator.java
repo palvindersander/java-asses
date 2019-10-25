@@ -15,7 +15,6 @@ public class TweetGenerator {
     private static Random random = new Random();
 
     public static void main(String[] args) throws IOException {
-
         new TweetGenerator();
         System.out.println("Done.");
     }
@@ -113,6 +112,9 @@ public class TweetGenerator {
         increment frequency
          */
         ArrayList<Word> words = new ArrayList<>();
+        if (TweetGenerator.words != null && TweetGenerator.words.size() > 0) {
+            words = TweetGenerator.words;
+        }
         if (cleaned.isEmpty() | cleaned == null) {
             return null;
         }
