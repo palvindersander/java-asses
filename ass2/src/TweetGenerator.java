@@ -109,15 +109,15 @@ public class TweetGenerator {
             }
             if (getWord(currentWord, tweetWords) == null) {
                 Word word = new Word(currentWord);
+                word.incrementFrequency();
                 if (followerWord != null) {
                     word.addFollower(followerWord);
                 }
                 tweetWords.add(word);
             }
-            if (getWord(currentWord, tweetWords) != null) {
+            else {
                 Word word = getWord(currentWord, tweetWords);
                 int index = tweetWords.indexOf(word);
-                assert word != null;
                 word.incrementFrequency();
                 if (followerWord != null) {
                     if (!word.followerExists(followerWord)) {
