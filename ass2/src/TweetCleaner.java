@@ -16,31 +16,21 @@ public class TweetCleaner {
     private static ArrayList<String> cleaned = new ArrayList<String>();
 
     public static void main(String[] args) throws IOException {
-
         new TweetCleaner();
-
         System.out.println("Done.");
     }
 
     public TweetCleaner() throws IOException {
-
         loadRaw();
-
         clean();
-
         saveClean();
     }
 
     private void clean() {
-
         for (String line : raw) {
-
             String cln = clean(line);
-
             if (cln != null) {
-
                 String[] toks = cln.split(" ");
-
                 for (String s : toks) {
                     addClean(s);
                 }
@@ -49,24 +39,19 @@ public class TweetCleaner {
     }
 
     public String clean(String input) {
-        //prelim checks
         if (input == null || input.isEmpty()) {
             return null;
         }
         String[] words = input.split(" ");
         ArrayList<String> cleanedWords = new ArrayList<>();
-
-        //checking words
         for (String word : words) {
             if (word == null || word.isEmpty()) {
                 continue;
             }
             String cleanedWord = word;
-            //check if valid
             if (cleanedWord.contains("#") || cleanedWord.contains("@") || cleanedWord.contains("http") || cleanedWord.equals("RT") || cleanedWord.equals("rt")) {
                 continue;
             }
-            //check if contains digits
             boolean digits = false;
             for (int i = 0; i < cleanedWord.length(); i++) {
                 char c = cleanedWord.charAt(i);
@@ -78,17 +63,13 @@ public class TweetCleaner {
             if (digits) {
                 continue;
             }
-            //remove ellipsis
             cleanedWord = cleanedWord.replace("....", "");
             cleanedWord = cleanedWord.replace("...", "");
-            //remove hyphen
             cleanedWord = cleanedWord.replace("-", "");
-            //reform punctuation
             String removePuncWord = "";
             String reformedWord = "";
             for (int i = 0; i < cleanedWord.length(); i++) {
                 char c = cleanedWord.charAt(i);
-                //remove any unacceptable char
                 if (c != 8217 && c != 39 && c != 33 && c != 63 && !checkLetter(c)) {
                     continue;
                 }
@@ -97,7 +78,6 @@ public class TweetCleaner {
             cleanedWord = removePuncWord;
             for (int i = 0; i < cleanedWord.length(); i++) {
                 char c = cleanedWord.charAt(i);
-                //check exclamation
                 if (c == 33) {
                     if (i == 0) {
                         continue;
@@ -116,7 +96,6 @@ public class TweetCleaner {
                         }
                     }
                 }
-                //check question
                 if (c == 63) {
                     if (i == 0) {
                         continue;
@@ -135,7 +114,6 @@ public class TweetCleaner {
                         }
                     }
                 }
-                //check apostrophe
                 if (c == 39 || c == 8217) {
                     if (cleanedWord.length() < 2) {
                         continue;
@@ -165,8 +143,6 @@ public class TweetCleaner {
             }
             cleanedWords.add(cleanedWord);
         }
-
-        //create cleaned string
         if (cleanedWords.size() == 0) {
             return null;
         }
@@ -188,34 +164,23 @@ public class TweetCleaner {
     }
 
     private void addClean(String clean) {
-
         cleaned.add(clean);
     }
 
     private void saveClean() throws FileNotFoundException {
-
         PrintWriter pw = new PrintWriter("cleaned.txt");
-
         for (String s : cleaned) {
             pw.print(s + " ");
         }
-
         pw.close();
-
     }
 
     private void loadRaw() throws IOException {
-
         BufferedReader br = new BufferedReader(new FileReader(new File("donald.txt")));
-
         String line = "";
-
         while ((line = br.readLine()) != null) {
-
             raw.add(line);
-
         }
-
         br.close();
     }
 }
