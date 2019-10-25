@@ -96,9 +96,6 @@ public class TweetGenerator {
 
     public ArrayList<Word> findWords(ArrayList<String> cleaned) {
         ArrayList<Word> tweetWords = new ArrayList<>();
-        if (TweetGenerator.words != null && TweetGenerator.words.size() > 0) {
-            tweetWords = TweetGenerator.words;
-        }
         if (cleaned.isEmpty() || cleaned == null) {
             return null;
         }
