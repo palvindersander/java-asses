@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="09063b3f-5cd9-469c-9235-269bbf9b2118" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ass2/TweetCleaner.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ass2/TweetCleaner.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ass2/TweetGenerator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ass2/TweetGenerator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ass2/Word.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ass2/Word.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TweetGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TweetGenerator.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
