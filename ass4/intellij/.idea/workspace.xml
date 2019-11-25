@@ -2,21 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="60cb2cdc-95b0-4841-8f35-99e801b6602b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/intellij.iml" beforeDir="false" afterPath="$PROJECT_DIR$/intellij.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/intellij/com/ass4/ConvertMode.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/intellij/com/ass4/Converter$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/intellij/com/ass4/Converter$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/intellij/com/ass4/Converter$ConvertMode.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/intellij/com/ass4/Converter$ConvertMode.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/intellij/com/ass4/Converter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/intellij/com/ass4/Converter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/intellij/com/ass4/InvalidFormatException.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/intellij/com/ass4/InvalidFormatException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/intellij/com/ass4/ConverterTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/intellij/com/ass4/ConverterTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/intellij/com/ass4/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/intellij/com/ass4/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/intellij/com/ass4/conversionB2D.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/intellij/com/ass4/conversionB2D.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/intellij/com/ass4/conversionB2H.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/intellij/com/ass4/conversionB2H.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/intellij/com/ass4/conversionD2B.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/intellij/com/ass4/conversionD2B.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/intellij/com/ass4/conversionH2B.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/intellij/com/ass4/conversionH2B.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/intellij/com/ass4/conversionInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/intellij/com/ass4/conversionInterface.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/intellij/com/ass4/conversionSuper.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/intellij/com/ass4/conversionSuper.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/ass4/Converter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ass4/Converter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/ass4/ConverterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ass4/ConverterTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/ass4/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ass4/Main.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />

@@ -22,7 +22,7 @@ public class ConverterTest {
         marks = 20.0f
     )*/
     void test_ConverterFromFile() {
-        Converter c = new Converter(ConvertMode.BIN2HEX);
+        Converter c = new Converter(Converter.ConvertMode.BIN2HEX);
         c.fromFile("input.txt");
         ArrayList<String> input = c.getInputValues();
         ArrayList<String> output = c.getOutputValues();
@@ -45,7 +45,7 @@ public class ConverterTest {
     )*/
     public void test_Bin2Hex() {
 
-        Converter converter = new Converter(ConvertMode.BIN2HEX);
+        Converter converter = new Converter(Converter.ConvertMode.BIN2HEX);
 
         try {
             assertTrue(converter.convert("11111111").equals("FF"));
@@ -71,7 +71,7 @@ public class ConverterTest {
     )*/
     public void test_Bin2Hex_exception() {
 
-        Converter converter = new Converter(ConvertMode.BIN2HEX);
+        Converter converter = new Converter(Converter.ConvertMode.BIN2HEX);
 
         try {
             assertTrue(converter.convert("1111111").equals("FF"));
@@ -102,7 +102,7 @@ public class ConverterTest {
     */
     public void test_Hex2Bin() {
 
-        Converter converter = new Converter(ConvertMode.HEX2BIN);
+        Converter converter = new Converter(Converter.ConvertMode.HEX2BIN);
 
         try {
             assertTrue(converter.convert("88").equals("10001000"));
@@ -124,7 +124,7 @@ public class ConverterTest {
     )*/
     public void test_Hex2Bin_exception() {
 
-        Converter converter = new Converter(ConvertMode.HEX2BIN);
+        Converter converter = new Converter(Converter.ConvertMode.HEX2BIN);
 
         try {
             assertTrue(converter.convert("8").equals("10001000"));
@@ -146,7 +146,7 @@ public class ConverterTest {
     )*/
     public void test_Dec2Bin() {
 
-        Converter converter = new Converter(ConvertMode.DEC2BIN);
+        Converter converter = new Converter(Converter.ConvertMode.DEC2BIN);
 
         try {
             assertTrue(converter.convert("255").equals("11111111"));
@@ -169,7 +169,7 @@ public class ConverterTest {
     )*/
     public void test_Dec2Bin_exception() {
 
-        Converter converter = new Converter(ConvertMode.DEC2BIN);
+        Converter converter = new Converter(Converter.ConvertMode.DEC2BIN);
 
         try {
             assertTrue(converter.convert("2555").equals("11111111"));
@@ -191,7 +191,7 @@ public class ConverterTest {
     )*/
     public void test_Bin2Dec() {
 
-        Converter converter = new Converter(ConvertMode.BIN2DEC);
+        Converter converter = new Converter(Converter.ConvertMode.BIN2DEC);
 
         try {
             assertTrue(converter.convert("11111111").equals("255"));
@@ -213,7 +213,7 @@ public class ConverterTest {
     )*/
     public void test_Bin2Dec_exception() {
 
-        Converter converter = new Converter(ConvertMode.BIN2DEC);
+        Converter converter = new Converter(Converter.ConvertMode.BIN2DEC);
 
         try {
             assertTrue(converter.convert("1111111").equals("255"));

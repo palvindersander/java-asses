@@ -7,9 +7,13 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
-enum ConvertMode {BIN2HEX, HEX2BIN, BIN2DEC, DEC2BIN}
+//enum ConvertMode {BIN2HEX, HEX2BIN, BIN2DEC, DEC2BIN}
+
+//enum ConvertMode {BIN2HEX, HEX2BIN, BIN2DEC, DEC2BIN}
 
 public class Converter {
+
+    public static enum ConvertMode {BIN2HEX, HEX2BIN, BIN2DEC, DEC2BIN}
 
     private ConvertMode mode;
 
