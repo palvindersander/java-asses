@@ -44,7 +44,7 @@ public class Converter {
         return output;
     }
 
-    public void fromFile(String filename) throws IOException {
+    public void fromFile(String filename) {
         try {
             BufferedReader in = new BufferedReader(new FileReader(filename));
             ArrayList<String> inputs = new ArrayList<>();
@@ -55,7 +55,6 @@ public class Converter {
             in.close();
             this.inputs = inputs;
         } catch (IOException e) {
-            throw(e);
         }
         ArrayList<String> outputs = new ArrayList<>();
         for (String value : inputs) {
