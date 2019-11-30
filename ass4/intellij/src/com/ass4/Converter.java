@@ -44,7 +44,7 @@ public class Converter {
         return output;
     }
 
-    public void fromFile(String filename) {
+    public void fromFile(String filename){
         try {
             BufferedReader in = new BufferedReader(new FileReader(filename));
             ArrayList<String> inputs = new ArrayList<>();
