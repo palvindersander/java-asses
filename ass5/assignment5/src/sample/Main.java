@@ -1,6 +1,7 @@
 package sample;
 //package com.bham.pij.assignments.edgedetector;
 
+import com.sun.javafx.geom.Edge;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -11,10 +12,12 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import javax.swing.*;
+import java.awt.*;
 import java.io.File;
 
 public class Main extends Application {
@@ -47,7 +50,24 @@ public class Main extends Application {
         root.getChildren().add(menuBar);
         //
         //
+        revertItem.setOnAction(actionEvent -> {
+            showImage(root, img);
+        });
+        //
+        //
         stage.setScene(new Scene(root, 500, 500));
+        //
+        //
+        closeItem.setOnAction(actionEvent -> {
+            removeImage(root);
+        });
+        //
+        //
+        filterItem.setOnAction(actionEvent -> {
+            EdgeDetector det = new EdgeDetector();
+            filteredImage = det.filterImage(img);
+            showImage(root, filteredImage);
+        });
         //
         //
         openItem.setOnAction(actionEvent -> {
@@ -61,8 +81,17 @@ public class Main extends Application {
         });
     }
 
+    private Image img;
+    private Image filteredImage;
+
     private void loadFileImage(VBox root) {
-        Image img = new Image("file:" + file.getPath());
+        img = new Image("file:" + file.getPath());
+        imgView = new ImageView(img);
+        root.getChildren().add(imgView);
+    }
+
+    private void showImage(VBox root, Image img) {
+        removeImage(root);
         imgView = new ImageView(img);
         root.getChildren().add(imgView);
     }
