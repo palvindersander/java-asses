@@ -55,8 +55,8 @@ public class MLNode<E> implements MLNodeInterface<E>
 	public MLNodeInterface<E> remove2()
 	{
 		/* WRITE THIS CODE */
-		this.prev2.setNext1(next2);
-		this.next2.setPrev1(prev2);
+		this.prev2.setNext2(next2);
+		this.next2.setPrev2(prev2);
 		this.prev2 = this;
 		this.next2 = this;
 		return this;
