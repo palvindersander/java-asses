@@ -40,13 +40,21 @@ public class OrderedMruList<E extends Comparable<E>> implements OrderedMruListIn
 	public MLNodeInterface<E> getFirstMru()
 	{
 		/* WRITE THIS CODE */
-		return head.getNext2();
+		if (this.isEmptyMru()) {
+			return null;
+		} else {
+			return head.getNext2();
+		}
 	}
 	
 	public MLNodeInterface<E> getFirstOrdered()
 	{
 		/* WRITE THIS CODE */
-		return head.getNext1();
+		if (this.isEmptyOrdered()) {
+			return null;
+		} else {
+			return head.getNext1();
+		}
 	}
 	
 	public MLNodeInterface<E> getNextOrdered(MLNodeInterface<E> current)
@@ -77,7 +85,9 @@ public class OrderedMruList<E extends Comparable<E>> implements OrderedMruListIn
 		if (!this.isEmptyOrdered()) {
 			newNode.addAfter1(head);
 			while (true) {
-				if ( element.compareTo(newNode.getNext1().getElement()) < 0) {
+				if (newNode.getNext1() == this.head) {
+					break;
+				} else if ( element.compareTo(newNode.getNext1().getElement()) > 0) {
 					newNode.addAfter1(newNode.getNext1());
 				} else {
 					break;
